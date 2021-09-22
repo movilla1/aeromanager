@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   # POST /sessions or /sessions.json
   def create
-    user = ::AeromanagerModels::User.find_by_email(params[:email])
+    user = ::User.find_by_email(params[:email])
     if (user&.admin? || user&.superadmin?) && user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to(admin_root_url, notice: "Logged in!")

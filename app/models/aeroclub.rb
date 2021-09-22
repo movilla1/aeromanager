@@ -21,6 +21,6 @@ class Aeroclub < ApplicationRecord
             presence: true,
             length: { minimum: 6, maximum: 20 },
             format: { with: /\+{0,1}(\d+-{0,1}\d+)+/, message: 'Only + - and numbers are allowed' }
-  has_many :club_member, class_name: "AeromanagerModels::ClubMember"
+  has_many :club_member, class_name: "ClubMember"
   has_many :members, through: :club_member, source: :aeroclub
 end

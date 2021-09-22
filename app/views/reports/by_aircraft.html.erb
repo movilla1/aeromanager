@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Uso en horas por avion</h1>
+  <table class="table striped" style="width: 50%">
+    <tr>
+      <th>Avion</th>
+      <th>Usuario</th>
+      <th>Horas</th>
+    </tr>
+    <% report.data_processed.each do  |row| %>
+    <% 
+      user = row[1].keys.first
+      hours = row[1].values.first.round(1)
+    %>
+      <tr>
+        <td><%= row[0] %></td>
+        <td><%= user %></td>
+        <td><%= hours %></td>
+    <% end %>
+  </table>
+</div>

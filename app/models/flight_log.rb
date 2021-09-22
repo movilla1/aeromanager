@@ -25,9 +25,9 @@
 #
 class FlightLog < ApplicationRecord
   enum flight_type: %i[TAXI LA TA VP ENT INST I PA IP ADAP READ RP SAN ACR EXA FOT FOR VO LP]
-  belongs_to :airplane, class_name: "AeromanagerModels::Airplane"
-  belongs_to :user, class_name: "AeromanagerModels::User"
-  belongs_to :instructor, class_name: "AeromanagerModels::User", foreign_key: :instructor_id
+  belongs_to :airplane, class_name: "::Airplane"
+  belongs_to :user, class_name: "::User"
+  belongs_to :instructor, class_name: "::User", foreign_key: :instructor_id
 
   validates :flight_start, presence: true
   validates :flight_end, presence: true
@@ -45,10 +45,10 @@ class FlightLog < ApplicationRecord
     if flight_duration.positive?
       @errors.add( :flight_start, message: ::I18n.t("models.flight_log.errors.start_must_be_before_end") )
     end
-    if flight_duration > ::AeromanagerModels::FlightLog::MAX_FLIGHT_DURATION
+    if flight_duration > ::FlightLog::MAX_FLIGHT_DURATION
       @errors.add( :flight_start, message: ::I18n.t("models.flight_log.errors.too_long") )
     end
-    if flight_duration < ::AeromanagerModels::FlightLog::MIN_FLIGHT_DURATION
+    if flight_duration < ::FlightLog::MIN_FLIGHT_DURATION
       @errors.add(:flight_end, message: ::I18n.t("models.flight_log.errors.too_short"))
     end
   end

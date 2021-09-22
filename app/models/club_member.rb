@@ -21,6 +21,6 @@
 #
 
 class ClubMember < ApplicationRecord
-  belongs_to :aeroclub, class_name: "AeromanagerModels::Aeroclub"
-  belongs_to :user, class_name: "AeromanagerModels::User"
+  belongs_to :aeroclub, class_name: "::Aeroclub"
+  belongs_to :user, class_name: "::User"
 end

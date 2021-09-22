@@ -11,6 +11,6 @@
 #  user_id        :integer
 #
 class MaintenanceRecord < ApplicationRecord
-  belongs_to :user, class_name: "AeromanagerModels::User"
+  belongs_to :user, class_name: "::User"
   belongs_to :airplane
 end

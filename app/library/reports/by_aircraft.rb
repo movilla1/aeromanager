@@ -7,13 +7,13 @@ module Reports
     # Initializes the object with the data
     def initialize(date_start, date_end)
       @data_processed = {}
-      data = ::AeromanagerModels::FlightLog.includes(:user, :airplane)
+      data = ::FlightLog.includes(:user, :airplane)
         .select(:airplane_id, :user_id, :flight_start, :flight_end)
         .where("flight_start <= ? AND flight_end <= ?", date_start, date_end)
         .order(user_id: :asc)
       hours = {}
       data.each do |row|
-        normalized_hours = ::AeromanagerModels::Services::Normalizer.new
+        normalized_hours = ::Services::Normalizer.new
           .normalized_hours(row.flight_start, row.flight_end)
         if @data_processed[row.airplane.identifier].present?
           hours[row.user_id] += normalized_hours

@@ -10,5 +10,5 @@
 #  user_id     :integer
 #
 class Invoice < ApplicationRecord
-  belongs_to :user, class_name: "AeromanagerModels::User"
+  belongs_to :user, class_name: "::User"
 end

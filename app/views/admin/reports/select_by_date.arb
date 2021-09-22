@@ -19,7 +19,7 @@ active_admin_form_for :reports, url: { action: action } do |f|
       f.input(
         :airplane,
         as: :select,
-        collection: ::AeromanagerModels::Airplane.all,
+        collection: ::Airplane.all,
         label: ::I18n.t("reports.airplane"),
         prompt: ::I18n.t("reports.all_airplanes")
       )
@@ -27,7 +27,7 @@ active_admin_form_for :reports, url: { action: action } do |f|
       f.input(
         :user,
         as: :select,
-        collection: ::AeromanagerModels::User.active,
+        collection: ::User.active,
         label: ::I18n.t("reports.user"),
         prompt: ::I18n.t("reports.all_users")
       )

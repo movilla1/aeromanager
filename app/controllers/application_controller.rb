@@ -5,7 +5,7 @@ class ApplicationController < ::ActionController::Base
 
   # returns the app current logged in user
   def current_user
-    @current_user ||= ::AeromanagerModels::User.find(session[:user_id])
+    @current_user ||= ::User.find(session[:user_id])
   end
 
   # Redirect non-admin users out of the admin pages

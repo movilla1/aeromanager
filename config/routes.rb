@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
+# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
+::Rails.application.routes.draw do
+  ::ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     resources :aeroclubs
