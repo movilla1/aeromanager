@@ -1,0 +1,84 @@
+es:
+  activerecord:
+    models:
+      aeroclub:
+        one: "Aeroclub"
+        other: "Aeroclubes"
+      airplane:
+        one: "Avion"
+        other: "Aviones"
+      club_member:
+        one: "Miembro"
+        other: "Miembros"
+      invoice:
+        one: "Recibo"
+        other: "Recibos"
+      maintenance_record:
+        one: "Registro de mantenimiento"
+        other: "Registros de mantenimiento"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+      price:
+        one: "Precio"
+        other: "Precios"
+      report:
+        one: "Reporte"
+        other: "Reportes"
+    attributes:
+      aeromanager_models/aeroclub:
+        name: "Nombre"
+        address: "Direccion"
+        phone: "Telefono"
+        web: "Web"
+        facebook: "Facebook"
+        lat: "Latitud"
+        long: "Longitud"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      aeromanager_models/airplane:
+        make: "Marca"
+        model: "Modelo"
+        purchased_date: "Fecha de compra"
+        designation: "Matricula"
+        aeroclub: "Aeroclub"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      aeromanager_models/club_member:
+        aeroclub: "Aeroclub"
+        user: "Usuario"
+        start_date: "Fecha Inicio"
+        end_date: "Fecha Fin"
+        active: "Activo"
+        Banned: "Expulsado"
+        instructor: "Instructor"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      aeromanager_models/invoice:
+        user: "Usuario"
+        description: "Descripcion"
+        creator: "Creador"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      aeromanager_models/maintenance_record:
+        user: "Usuario"
+        description: "Descripcion"
+        hours_extended: "Horas Extendidas"
+        airplane: "Avion"
+      aeromanager_models/price:
+        amount: "Monto"
+        name: "Nombre"
+        active: "Activo"
+        date_activated: "Fecha Activacion"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      aeromanager_models/user:
+        name: "Nombre"
+        email: "E-Mail"
+        role: "Rol"
+        active: "Activo"
+        confirmed: "Confirmado"
+        license: "Licencia"
+        license_type: "Tipo de Licencia"
+        created_at: "Creado"
+        updated_at: "Actualizado"
