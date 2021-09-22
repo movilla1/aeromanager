@@ -47,8 +47,12 @@ gem 'pundit', '~> 2.1', '>= 2.1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  # Annotate models
+  gem 'annotate', '~> 3.1', '>= 3.1.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # ERD generation support
+  gem 'rails-erd'
   # Rspec for rails
   gem 'rspec-rails'
 end

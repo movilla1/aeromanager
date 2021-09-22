@@ -1,5 +1,5 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
-::ActiveAdmin.register(::AeromanagerModels::User, as: 'User') do
+::ActiveAdmin.register(::User, as: 'User') do
   index do
     column :name
     column :email

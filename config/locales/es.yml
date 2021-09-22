@@ -1,0 +1,109 @@
+es:
+  only_admin_authorized: "Solo para administradores"
+  reports:
+    title: "Reportes"
+    by_aircraft: "Por Avion"
+    by_pilot: "Por Piloto"
+    select_by_pilot: "Reporte Por Piloto"
+    select_by_plane: "Reporte Por Avion"
+    start_date: "Fecha Inicio"
+    end_date: "Fecha Fin"
+    airplane: "Avion"
+    user: "Usuario"
+    all_airplanes: "Todos los Aviones"
+    all_users: "Todos los Usuarios"
+  date:
+    formats:
+      long: '%e de %B de %Y'
+      short: '%d/%m/%Y'
+      default: '%d/%m/%Y'
+    month_names:
+      [~ , Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre ]
+  time:
+    formats:
+      long: '%e de %B de %Y, %H:%M'
+      short: '%d/%m/%Y - %H:%M'
+      default: '%d/%m/%Y - %H:%M'
+  activerecord:
+    models:
+      aeroclub:
+        one: "Aeroclub"
+        other: "Aeroclubes"
+      airplane:
+        one: "Avion"
+        other: "Aviones"
+      club_member:
+        one: "Miembro"
+        other: "Miembros"
+      invoice:
+        one: "Recibo"
+        other: "Recibos"
+      maintenance_record:
+        one: "Registro de mantenimiento"
+        other: "Registros de mantenimiento"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+      price:
+        one: "Precio"
+        other: "Precios"
+      report:
+        one: "Reporte"
+        other: "Reportes"
+    attributes:
+      aeroclub:
+        name: "Nombre"
+        address: "Direccion"
+        phone: "Telefono"
+        web: "Web"
+        facebook: "Facebook"
+        lat: "Latitud"
+        long: "Longitud"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      airplane:
+        make: "Marca"
+        model: "Modelo"
+        purchased_date: "Fecha de compra"
+        designation: "Matricula"
+        aeroclub: "Aeroclub"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      club_member:
+        aeroclub: "Aeroclub"
+        user: "Usuario"
+        start_date: "Fecha Inicio"
+        end_date: "Fecha Fin"
+        active: "Activo"
+        Banned: "Expulsado"
+        instructor: "Instructor"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      invoice:
+        user: "Usuario"
+        description: "Descripcion"
+        creator: "Creador"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      maintenance_record:
+        user: "Usuario"
+        description: "Descripcion"
+        hours_extended: "Horas Extendidas"
+        airplane: "Avion"
+      price:
+        amount: "Monto"
+        name: "Nombre"
+        active: "Activo"
+        date_activated: "Fecha Activacion"
+        created_at: "Creado"
+        updated_at: "Modificado"
+      user:
+        name: "Nombre"
+        email: "E-Mail"
+        role: "Rol"
+        active: "Activo"
+        confirmed: "Confirmado"
+        license: "Licencia"
+        license_type: "Tipo de Licencia"
+        created_at: "Creado"
+        updated_at: "Actualizado"
