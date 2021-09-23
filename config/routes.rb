@@ -12,6 +12,18 @@
     resources :users
   end
 
+  namespace :api do
+    namespace :v1 do
+      get 'airplanes/index'
+      resources :flight_logs
+      get '/airplanes', to: 'airplanes#index'
+      post 'authenticate', to: 'authentication#authenticate'
+      post '/user/changepass', to: 'users#update_password'
+      post '/user', to: 'users#update'
+      get '/users/instructors', to: 'users#instructors'
+    end
+  end
+
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create', as: 'signin'
   get 'logout', to: 'sessions#destroy', as: 'logout'
