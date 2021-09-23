@@ -66,6 +66,12 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   # Rspec support
   gem 'rspec-rails', '~> 5.0.0'
+  # Rubocop style cop
+  gem 'rubocop', '~> 1.18', '>= 1.18.3'
+  # Rubocop extensions for rails
+  gem 'rubocop-rails', '~> 2.11', '>= 2.11.3'
+  # Rubocop support for rspec
+  gem 'rubocop-rspec', '~> 2.4'
   # Better matchers for testing
   gem 'shoulda-matchers', '~> 5.0'
 end
@@ -73,12 +79,6 @@ end
 group :development do
   # ER diagrams from models
   gem 'rails-erd', '~> 1.6', '>= 1.6.1'
-  # Rubocop style cop
-  gem 'rubocop', '~> 1.18', '>= 1.18.3'
-  # Rubocop extensions for rails
-  gem 'rubocop-rails', '~> 2.11', '>= 2.11.3'
-  # Rubocop support for rspec
-  gem 'rubocop-rspec', '~> 2.4'
   # Coverage report creation
   gem 'simplecov', '~> 0.21.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
