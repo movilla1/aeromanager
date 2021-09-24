@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 # == Schema Information
 #
-# Table name: aeromanager_models_club_members
+# Table name: club_members
 #
 #  id          :bigint           not null, primary key
 #  active      :boolean          default(TRUE)
@@ -16,11 +16,11 @@
 #
 # Indexes
 #
-#  index_aeromanager_models_club_members_on_aeroclub_id  (aeroclub_id)
-#  index_aeromanager_models_club_members_on_user_id      (user_id)
+#  index_club_members_on_aeroclub_id  (aeroclub_id)
+#  index_club_members_on_user_id      (user_id)
 #
 
 class ClubMember < ApplicationRecord
-  belongs_to :aeroclub, class_name: "::Aeroclub"
-  belongs_to :user, class_name: "::User"
+  belongs_to :aeroclub, class_name: "Aeroclub"
+  belongs_to :user, class_name: "User"
 end

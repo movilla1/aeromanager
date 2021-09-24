@@ -1,5 +1,11 @@
 es:
   only_admin_authorized: "Solo para administradores"
+  auth:
+    unauthorized: "Acceso no Autorizado"
+  user:
+    update:
+      password_ok: "Contraseña Cambiada"
+      success: "Usuario actualizado"
   reports:
     title: "Reportes"
     by_aircraft: "Por Avion"
@@ -107,3 +113,6 @@ es:
         license_type: "Tipo de Licencia"
         created_at: "Creado"
         updated_at: "Actualizado"
+    errors:
+      messages:
+        record_invalid: "Registro no válido"

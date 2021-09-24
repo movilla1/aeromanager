@@ -22,6 +22,6 @@ class FlightLogsSerializer
   end
 
   attribute :normalized_duration do |obj|
-    ::AeromanagerModels::Services::Normalizer.normalized_hours(obj.flight_start, obj.flight_end)
+    ::Services::Normalizer.normalized_hours(obj.flight_start, obj.flight_end)
   end
 end

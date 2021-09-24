@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 # == Schema Information
 #
-# Table name: aeromanager_models_airplanes
+# Table name: airplanes
 #
 #  id             :bigint           not null, primary key
 #  designation    :string
@@ -14,10 +14,10 @@
 #
 # Indexes
 #
-#  index_aeromanager_models_airplanes_on_aeroclub_id  (aeroclub_id)
+#  index_airplanes_on_aeroclub_id  (aeroclub_id)
 #
 class Airplane < ApplicationRecord
-  belongs_to :aeroclub, class_name: "::Aeroclub", optional: false
+  belongs_to :aeroclub, class_name: "Aeroclub", optional: false
   validates :designation, presence: true, length: { minimum: 2, maximum: 10 }
 
   # assembles unique identifier to show

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: aeromanager_models_invoice_rows
+# Table name: invoice_rows
 #
 #  id          :bigint           not null, primary key
 #  amount      :float
@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_aeromanager_models_invoice_rows_on_invoice_id  (invoice_id)
+#  index_invoice_rows_on_invoice_id  (invoice_id)
 #
 class InvoiceRow < ApplicationRecord
   belongs_to :invoice

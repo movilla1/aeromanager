@@ -24,8 +24,8 @@
     end
   end
 
-  get 'login', to: 'sessions#new', as: 'login'
-  post 'login', to: 'sessions#create', as: 'signin'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create', as: 'signin'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   root to: 'pages#index'
 end

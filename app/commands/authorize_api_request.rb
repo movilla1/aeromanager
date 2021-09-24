@@ -16,7 +16,7 @@ class AuthorizeApiRequest
 
   def user
     if decoded_auth_token
-      @user = ::AeromanagerModels::User.find_by(id: decoded_auth_token.first['user_id'])
+      @user = ::User.find_by(id: decoded_auth_token.first['user_id'])
     end
     @user
   end

@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 # == Schema Information
 #
-# Table name: aeromanager_models_aeroclubs
+# Table name: aeroclubs
 #
 #  id         :bigint           not null, primary key
 #  address    :string

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: aeromanager_models_prices
+# Table name: prices
 #
 #  id               :bigint           not null, primary key
 #  active           :boolean          default(TRUE)

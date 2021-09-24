@@ -47,17 +47,10 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "aeromanager_models_aeroclubs", force: :cascade do |t|
+  create_table "aeroclubs", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "phone"
@@ -69,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "aeromanager_models_airplanes", force: :cascade do |t|
+  create_table "airplanes", force: :cascade do |t|
     t.string "make"
     t.string "model"
     t.date "purchased_date"
@@ -77,10 +70,10 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.bigint "aeroclub_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["aeroclub_id"], name: "index_aeromanager_models_airplanes_on_aeroclub_id"
+    t.index ["aeroclub_id"], name: "index_airplanes_on_aeroclub_id"
   end
 
-  create_table "aeromanager_models_club_members", force: :cascade do |t|
+  create_table "club_members", force: :cascade do |t|
     t.bigint "aeroclub_id"
     t.bigint "user_id"
     t.datetime "start_date"
@@ -90,11 +83,11 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "instructor"
-    t.index ["aeroclub_id"], name: "index_aeromanager_models_club_members_on_aeroclub_id"
-    t.index ["user_id"], name: "index_aeromanager_models_club_members_on_user_id"
+    t.index ["aeroclub_id"], name: "index_club_members_on_aeroclub_id"
+    t.index ["user_id"], name: "index_club_members_on_user_id"
   end
 
-  create_table "aeromanager_models_consumables", force: :cascade do |t|
+  create_table "consumables", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "created_by_id"
     t.integer "updated_by_id"
@@ -103,10 +96,10 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_aeromanager_models_consumables_on_user_id"
+    t.index ["user_id"], name: "index_consumables_on_user_id"
   end
 
-  create_table "aeromanager_models_flight_logs", force: :cascade do |t|
+  create_table "flight_logs", force: :cascade do |t|
     t.bigint "airplane_id"
     t.bigint "user_id"
     t.datetime "flight_start", null: false
@@ -120,38 +113,41 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.string "destination_airport"
     t.integer "odo_start"
     t.integer "odo_end"
-    t.index ["airplane_id"], name: "index_aeromanager_models_flight_logs_on_airplane_id"
-    t.index ["user_id"], name: "index_aeromanager_models_flight_logs_on_user_id"
+    t.index ["airplane_id"], name: "index_flight_logs_on_airplane_id"
+    t.index ["user_id"], name: "index_flight_logs_on_user_id"
   end
 
-  create_table "aeromanager_models_invoice_rows", force: :cascade do |t|
+  create_table "invoice_rows", force: :cascade do |t|
     t.bigint "invoice_id"
     t.string "description"
     t.float "quantity"
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["invoice_id"], name: "index_aeromanager_models_invoice_rows_on_invoice_id"
+    t.index ["invoice_id"], name: "index_invoice_rows_on_invoice_id"
   end
 
-  create_table "aeromanager_models_invoices", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "invoices", force: :cascade do |t|
+    t.bigint "user_id"
     t.integer "creator_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
-  create_table "aeromanager_models_maintenance_records", force: :cascade do |t|
-    t.integer "airplane_id"
-    t.integer "user_id"
+  create_table "maintenance_records", force: :cascade do |t|
+    t.bigint "airplane_id"
+    t.bigint "user_id"
     t.string "description"
     t.integer "hours_extended"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["airplane_id"], name: "index_maintenance_records_on_airplane_id"
+    t.index ["user_id"], name: "index_maintenance_records_on_user_id"
   end
 
-  create_table "aeromanager_models_prices", force: :cascade do |t|
+  create_table "prices", force: :cascade do |t|
     t.float "amount"
     t.string "name"
     t.boolean "active", default: true
@@ -160,7 +156,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "aeromanager_models_users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
@@ -174,5 +170,4 @@ ActiveRecord::Schema.define(version: 2021_09_22_222907) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end

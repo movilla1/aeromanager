@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 # == Schema Information
 #
-# Table name: aeromanager_models_users
+# Table name: users
 #
 #  id              :bigint           not null, primary key
 #  active          :boolean
@@ -20,8 +20,8 @@ class User < ApplicationRecord
   enum license_type: %i[ppa pma instructor]
   has_secure_password
 
-  has_many :flight_logs, class_name: "::FlightLog"
-  has_many :club_members, class_name: "::ClubMember"
+  has_many :flight_logs, class_name: "FlightLog"
+  has_many :club_members, class_name: "ClubMember"
   has_many :aeroclubs, through: :club_members
 
   validates :license, presence: true, length: { minimum: 4 }

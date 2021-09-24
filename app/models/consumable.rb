@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: aeromanager_models_consumables
+# Table name: consumables
 #
 #  id            :bigint           not null, primary key
 #  description   :string
@@ -14,13 +14,13 @@
 #
 # Indexes
 #
-#  index_aeromanager_models_consumables_on_user_id  (user_id)
+#  index_consumables_on_user_id  (user_id)
 #
 
 class Consumable < ApplicationRecord
-  belongs_to :user, class_name: "::User"
-  belongs_to :creator, class_name: "::User", foreign_key: 'created_by_id', optional: false
-  belongs_to :updater, class_name: "::User", foreign_key: 'updated_by_id', optional: false
+  belongs_to :user, class_name: "User"
+  belongs_to :creator, class_name: "User", foreign_key: 'created_by_id', optional: false
+  belongs_to :updater, class_name: "User", foreign_key: 'updated_by_id', optional: false
 
   before_validation :set_creator_and_updater
 

@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: flight_logs
+#
+#  id                  :bigint           not null, primary key
+#  destination_airport :string
+#  flight_end          :datetime         not null
+#  flight_start        :datetime         not null
+#  flight_type         :integer
+#  normalized_duration :float
+#  odo_end             :integer
+#  odo_start           :integer
+#  origin_airport      :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  airplane_id         :bigint
+#  instructor_id       :integer
+#  user_id             :bigint
+#
+# Indexes
+#
+#  index_flight_logs_on_airplane_id  (airplane_id)
+#  index_flight_logs_on_user_id      (user_id)
+#
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 class FlightLogSerializer
   include ::FastJsonapi::ObjectSerializer
@@ -18,7 +42,7 @@ class FlightLogSerializer
   end
 
   attribute :normalized_duration do |obj|
-    ::AeromanagerModels::Services::Normalizer.normalized_hours(obj.flight_start, obj.flight_end)
+    ::Services::Normalizer.normalized_hours(obj.flight_start, obj.flight_end)
   end
 
   attribute :instructor do |obj|

@@ -26,7 +26,7 @@ class AuthenticateUser
   attr_accessor :email, :password
 
   def user
-    user = ::AeromanagerModels::User.find_by(email: email)
+    user = ::User.find_by(email: email)
     return user if user&.authenticate(password)
 
     errors.add(:user_authentication, ::I18n.t('auth.invalid_credentials'))

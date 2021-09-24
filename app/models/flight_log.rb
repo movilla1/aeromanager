@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 # == Schema Information
 #
-# Table name: aeromanager_models_flight_logs
+# Table name: flight_logs
 #
 #  id                  :bigint           not null, primary key
 #  destination_airport :string
@@ -20,14 +20,14 @@
 #
 # Indexes
 #
-#  index_aeromanager_models_flight_logs_on_airplane_id  (airplane_id)
-#  index_aeromanager_models_flight_logs_on_user_id      (user_id)
+#  index_flight_logs_on_airplane_id  (airplane_id)
+#  index_flight_logs_on_user_id      (user_id)
 #
 class FlightLog < ApplicationRecord
   enum flight_type: %i[TAXI LA TA VP ENT INST I PA IP ADAP READ RP SAN ACR EXA FOT FOR VO LP]
-  belongs_to :airplane, class_name: "::Airplane"
-  belongs_to :user, class_name: "::User"
-  belongs_to :instructor, class_name: "::User", foreign_key: :instructor_id
+  belongs_to :airplane, class_name: "Airplane"
+  belongs_to :user, class_name: "User"
+  belongs_to :instructor, class_name: "User", foreign_key: :instructor_id
 
   validates :flight_start, presence: true
   validates :flight_end, presence: true

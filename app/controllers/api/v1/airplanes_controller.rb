@@ -11,7 +11,7 @@ module Api
           else
             ::Airplane
               .joins(aeroclub: { club_member: :user })
-              .where( aeromanager_models_club_members: { user_id: current_user.id } )
+              .where( club_members: { user_id: current_user.id } )
           end
         hash = ::AirplanesListSerializer.new(planes).serializable_hash
         render(json: hash)

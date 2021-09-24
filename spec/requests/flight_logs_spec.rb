@@ -13,7 +13,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe("/flight_logs", type: :request) do
+::RSpec.describe("/flight_logs", type: :request) do
   # This should return the minimal set of attributes required to create a valid
   # FlightLog. As you add validations to FlightLog, be sure to
   # adjust the attributes here as well.
@@ -21,8 +21,8 @@ RSpec.describe("/flight_logs", type: :request) do
   let(:user) { ::FactoryBot.create(:user) }
   let(:valid_attributes) {
     {
-      flight_start: ::DateTime.current - 1.hour,
-      flight_end: ::DateTime.current,
+      flight_start: ::Time.current - 1.hour,
+      flight_end: ::Time.current,
       airplane_id: airplane.id,
       user_id: user.id
     }
@@ -30,8 +30,8 @@ RSpec.describe("/flight_logs", type: :request) do
 
   let(:invalid_attributes) {
     {
-      flight_start: ::DateTime.current,
-      flight_end: ::DateTime.current - 10.minutes,
+      flight_start: ::Time.current,
+      flight_end: ::Time.current - 10.minutes,
       airplane_id: airplane.id
     }
   }
@@ -46,21 +46,21 @@ RSpec.describe("/flight_logs", type: :request) do
 
   describe "GET /index" do
     it "renders a successful response" do
-      ::AeromanagerModels::FlightLog.create!(valid_attributes)
-      get flight_logs_url, headers: valid_headers, as: :json
+      ::FlightLog.create!(valid_attributes)
+      get api_v1_flight_logs_url, headers: valid_headers, as: :json
       expect(response).to(be_successful)
     end
   end
 
   describe "GET /show" do
-    let!(:flight_log) { ::AeromanagerModels::FlightLog.create!(valid_attributes) }
+    let!(:flight_log) { ::FlightLog.create!(valid_attributes) }
     it "renders a successful response" do
-      get flight_log_url(flight_log), as: :json, headers: valid_headers
+      get api_v1_flight_log_url(flight_log), as: :json, headers: valid_headers
       expect(response).to(be_successful)
     end
 
     it "Fails with not found message" do
-      get flight_log_url("-1"), as: :json, headers: valid_headers
+      get api_v1_flight_log_url("-1"), as: :json, headers: valid_headers
       expect(response.body).to(include("Flight log wasn't found,"))
     end
   end
@@ -70,16 +70,16 @@ RSpec.describe("/flight_logs", type: :request) do
       it "creates a new FlightLog" do
         expect {
           post(
-            flight_logs_url,
+            api_v1_flight_logs_url,
             params: { flight_log: valid_attributes },
             headers: valid_headers,
             as: :json
           )
-        }.to(change(::AeromanagerModels::FlightLog, :count).by(1))
+        }.to(change(::FlightLog, :count).by(1))
       end
 
       it "renders a JSON response with the new flight_log" do
-        post flight_logs_url, params: { flight_log: valid_attributes }, headers: valid_headers, as: :json
+        post api_v1_flight_logs_url, params: { flight_log: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to(have_http_status(:ok))
         expect(response.content_type).to(match(a_string_including("application/json")))
       end
@@ -89,15 +89,15 @@ RSpec.describe("/flight_logs", type: :request) do
       it "does not create a new FlightLog" do
         expect {
           post(
-            flight_logs_url,
+            api_v1_flight_logs_url,
             params: { flight_log: invalid_attributes },
             as: :json
           )
-        }.to(change(::AeromanagerModels::FlightLog, :count).by(0))
+        }.to(change(::FlightLog, :count).by(0))
       end
 
       it "renders a JSON response with errors for the new flight_log" do
-        post flight_logs_url, params: { flight_log: invalid_attributes }, headers: valid_headers, as: :json
+        post api_v1_flight_logs_url, params: { flight_log: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to(have_http_status(:unprocessable_entity))
         expect(response.content_type).to(eq("application/json; charset=utf-8"))
       end
@@ -109,22 +109,22 @@ RSpec.describe("/flight_logs", type: :request) do
     context "with valid parameters" do
       let(:new_attributes) {
         {
-          flight_start: ::DateTime.current - 2.hour,
-          flight_end: ::DateTime.current,
+          flight_start: ::Time.current - 2.hour,
+          flight_end: ::Time.current,
           airplane_id: airplane2.id
         }
       }
 
       it "updates the requested flight_log" do
-        flight_log = ::AeromanagerModels::FlightLog.create!(valid_attributes)
-        patch flight_log_url(flight_log), params: { flight_log: new_attributes }, headers: valid_headers, as: :json
+        flight_log = ::FlightLog.create!(valid_attributes)
+        patch api_v1_flight_log_url(flight_log), params: { flight_log: new_attributes }, headers: valid_headers, as: :json
         flight_log.reload
         expect(flight_log.airplane_id).to(eq(airplane2.id))
       end
 
       it "renders a JSON response with the flight_log" do
-        flight_log = ::AeromanagerModels::FlightLog.create!(valid_attributes)
-        patch flight_log_url(flight_log), params: { flight_log: new_attributes }, headers: valid_headers, as: :json
+        flight_log = ::FlightLog.create!(valid_attributes)
+        patch api_v1_flight_log_url(flight_log), params: { flight_log: new_attributes }, headers: valid_headers, as: :json
         expect(response).to(have_http_status(:ok))
         expect(response.content_type).to(match(a_string_including("application/json")))
       end
@@ -132,8 +132,8 @@ RSpec.describe("/flight_logs", type: :request) do
 
     context "with invalid parameters" do
       it "renders a JSON response with errors for the flight_log" do
-        flight_log = ::AeromanagerModels::FlightLog.create!(valid_attributes)
-        patch flight_log_url(flight_log), params: { flight_log: invalid_attributes }, headers: valid_headers, as: :json
+        flight_log = ::FlightLog.create!(valid_attributes)
+        patch api_v1_flight_log_url(flight_log), params: { flight_log: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to(have_http_status(:unprocessable_entity))
         expect(response.content_type).to(eq("application/json; charset=utf-8"))
       end
@@ -142,10 +142,10 @@ RSpec.describe("/flight_logs", type: :request) do
 
   describe "DELETE /destroy" do
     it "destroys the requested flight_log" do
-      flight_log = ::AeromanagerModels::FlightLog.create!(valid_attributes)
+      flight_log = ::FlightLog.create!(valid_attributes)
       expect {
-        delete(flight_log_url(flight_log), headers: valid_headers, as: :json)
-      }.to(change(::AeromanagerModels::FlightLog, :count).by(-1))
+        delete(api_v1_flight_log_url(flight_log), headers: valid_headers, as: :json)
+      }.to(change(::FlightLog, :count).by(-1))
     end
   end
 end
