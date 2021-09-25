@@ -1,11 +1,17 @@
 es:
   only_admin_authorized: "Solo para administradores"
-  auth:
-    unauthorized: "Acceso no Autorizado"
   user:
     update:
-      password_ok: "Contraseña Cambiada"
       success: "Usuario actualizado"
+      failed: "Fallo al actualizar usuario"
+      password_ok: "Contraseña Cambiada"
+      password_failed: "Fallo al cambiar la contraseña"
+      bad_pass: "Contraseña Mala"
+  auth:
+    invalid_credentials: "Credenciales no válidas"
+    missingtoken: "Falta Token"
+    invalidtoken: "Token no válido"
+    unauthorized: "Acceso no Autorizado"
   reports:
     title: "Reportes"
     by_aircraft: "Por Avion"
@@ -56,6 +62,13 @@ es:
       report:
         one: "Reporte"
         other: "Reportes"
+      flight_log:
+        one: "Registro de vuelo"
+        other: "Registros de vuelo"
+        errors:
+          start_must_be_before_end: "Starting time must be before end time"
+          too_long: "Flight is too long, please check the dates"
+          too_short: "Minimum flight time not archieved "
     attributes:
       aeroclub:
         name: "Nombre"
@@ -116,3 +129,8 @@ es:
     errors:
       messages:
         record_invalid: "Registro no válido"
+  controllers:
+    flight_log:
+      not_found: "Flight log wasn't found, please verify the data requested"
+      saved_ok: "Flight Log saved correctly"
+      unable2save: "Unable to save Flight"

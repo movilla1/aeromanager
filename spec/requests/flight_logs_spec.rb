@@ -13,7 +13,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-::RSpec.describe("/flight_logs", type: :request) do
+::RSpec.describe("/api/v1/flight_logs", type: :request) do
   # This should return the minimal set of attributes required to create a valid
   # FlightLog. As you add validations to FlightLog, be sure to
   # adjust the attributes here as well.
@@ -21,10 +21,16 @@ require 'rails_helper'
   let(:user) { ::FactoryBot.create(:user) }
   let(:valid_attributes) {
     {
-      flight_start: ::Time.current - 1.hour,
-      flight_end: ::Time.current,
+      flight_start: ::DateTime.current - 1.hour,
+      flight_end: ::DateTime.current,
       airplane_id: airplane.id,
-      user_id: user.id
+      user_id: user.id,
+      flight_type: :VP,
+      instructor_id: ::FactoryBot.create(:user).id,
+      origin_airport: "CED",
+      destination_airport: "CED",
+      odo_start: 123,
+      odo_end: 125
     }
   }
 
@@ -32,7 +38,8 @@ require 'rails_helper'
     {
       flight_start: ::Time.current,
       flight_end: ::Time.current - 10.minutes,
-      airplane_id: airplane.id
+      airplane_id: airplane.id,
+      flight_type: :VP
     }
   }
 

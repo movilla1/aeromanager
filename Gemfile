@@ -24,11 +24,11 @@ gem 'bcrypt', '~> 3.1.7'
 # activeadmin gem
 gem 'activeadmin', '~> 2.9'
 # Flat skin theme for AA
-gem 'active_admin_flat_skin', '~> 0.1.2'
+gem 'formadmin', '~> 0.2'
 # curated addons for activeadmin
 gem 'activeadmin_addons', '~>1.8.3'
 # searchable select
-gem 'activeadmin-searchable_select'
+gem 'activeadmin-searchable_select', '~> 1.5'
 # Bootstrap interface support
 gem 'bootstrap', '~> 5.0.1'
 # Chart plotting for the reports
@@ -57,7 +57,7 @@ group :development, :test do
   # Annotate models
   gem 'annotate', '~> 3.1', '>= 3.1.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], '~> 11.1'
   # Factory bot data creation for testing
   gem 'factory_bot', '~> 6.2'
   # Rails extension for factorybot
@@ -89,5 +89,5 @@ group :development do
   # Listen gem
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 3.0'
 end
