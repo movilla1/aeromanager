@@ -1,19 +1,18 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 class ApplicationController < ::ActionController::Base
+  before_action :authenticate_user!
   include ::Pundit
-  helper_method :current_user
 
-  # returns the app current logged in user
-  def current_user
-    @current_user ||= ::User.find(session[:user_id])
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # returns true only for admin roles
+  def admin_only!
+    user_signed_in? && (current_user.admin? || current_user.superadmin?)
   end
 
-  # Redirect non-admin users out of the admin pages
-  def admin_only!
-    (redirect_to(root_url, notice: ::I18n.t('only_admin_authorized')) and return ) unless current_user
-    return true if current_user&.admin? || current_user&.superadmin?
+  protected
 
-    redirect_to(root_url, notice: ::I18n.t('only_admin_authorized'))
-    false
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 end

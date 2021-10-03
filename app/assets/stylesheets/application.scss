@@ -66,7 +66,9 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset], input[type=password]  {
+input[type=button], input[type=submit], input[type=reset],
+  input[type=password], input[type=email]  {
+
   background-color: #56baed;
   border: none;
   color: white;
@@ -86,6 +88,7 @@ input[type=button], input[type=submit], input[type=reset], input[type=password] 
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  float: none;
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
@@ -100,7 +103,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password], input[type=email] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -109,7 +112,7 @@ input[type=text] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 5px;
+  margin: 20px;
   width: 85%;
   border: 2px solid #f6f6f6;
   -webkit-transition: all 0.5s ease-in-out;
@@ -119,17 +122,23 @@ input[type=text] {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
+  float: none;
 }
-
+.actions {
+  margin-top: 10pt;
+}
 input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+input[type=text]:placeholder, input[type=password]:placeholder, input[type=email]:placeholder {
   color: #cccccc;
 }
 
+form input[type='text'], form input[type='password'], form input[type='email'], form input[type='number'], form input[type='url'], form input[type='tel'], form input[type='date'], form textarea {
+  float: none;
+}
 
 
 /* ANIMATIONS */

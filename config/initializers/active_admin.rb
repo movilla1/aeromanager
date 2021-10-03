@@ -1,5 +1,5 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
-ActiveAdmin.setup do |config|
+::ActiveAdmin.setup do |config|
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -104,13 +104,13 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :logout_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
   #
   # Default:
-  # config.logout_link_method = :get
+  config.logout_link_method = :delete
 
   # == Root
   #
@@ -333,4 +333,7 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+  meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
+  config.meta_tags = meta_tags_options
+  config.meta_tags_for_logged_out_pages = meta_tags_options
 end

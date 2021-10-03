@@ -63,12 +63,8 @@ es:
         one: "Reporte"
         other: "Reportes"
       flight_log:
-        one: "Registro de vuelo"
-        other: "Registros de vuelo"
-        errors:
-          start_must_be_before_end: "Starting time must be before end time"
-          too_long: "Flight is too long, please check the dates"
-          too_short: "Minimum flight time not archieved "
+        one: "Vuelo"
+        other: "Vuelos"
     attributes:
       aeroclub:
         name: "Nombre"
@@ -98,6 +94,19 @@ es:
         instructor: "Instructor"
         created_at: "Creado"
         updated_at: "Modificado"
+      flight_log:
+        airplane: "Avion"
+        user: "Usuario"
+        flight_start: "Inicio de vuelo"
+        flight_end: "Fin de vuelo"
+        normalized_duration: "Duración"
+        flight_type: "Tipo de vuelo"
+        origin_airport: "Aerop. de Origen"
+        destination_airport: "Aerop. de Destino"
+        odo_start: "Odometro al Inicio"
+        odo_end: "Odometro al final"
+        created_at: "Creado"
+        updated_at: "Actualizado"
       invoice:
         user: "Usuario"
         description: "Descripcion"

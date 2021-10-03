@@ -1,6 +1,8 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
-::ActiveAdmin.register(::User, as: 'User') do
+::ActiveAdmin.register(::User) do
+  actions :all
   index do
+    selectable_column
     column :name
     column :email
     column :role

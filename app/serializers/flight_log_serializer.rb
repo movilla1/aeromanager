@@ -22,7 +22,6 @@
 #  index_flight_logs_on_airplane_id  (airplane_id)
 #  index_flight_logs_on_user_id      (user_id)
 #
-# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 class FlightLogSerializer
   include ::FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower

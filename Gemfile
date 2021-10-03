@@ -1,3 +1,4 @@
+# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -23,8 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # activeadmin gem
 gem 'activeadmin', '~> 2.9'
-# Flat skin theme for AA
-gem 'formadmin', '~> 0.2'
+# theme for AA
+gem "active_material", '~>1.5', github: "vigetlabs/active_material"
 # curated addons for activeadmin
 gem 'activeadmin_addons', '~>1.8.3'
 # searchable select
@@ -33,6 +34,8 @@ gem 'activeadmin-searchable_select', '~> 1.5'
 gem 'bootstrap', '~> 5.0.1'
 # Chart plotting for the reports
 gem 'chartkick', '~> 4.0', '>= 4.0.5'
+# Devise for users
+gem 'devise', '~>4.7'
 # Font awesome
 gem 'font-awesome-rails', '~>4.7'
 # jquery rails for bootstrap
@@ -57,7 +60,7 @@ group :development, :test do
   # Annotate models
   gem 'annotate', '~> 3.1', '>= 3.1.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], '~> 11.1'
+  gem 'byebug', '~>11.1', platforms: %i[mri mingw x64_mingw]
   # Factory bot data creation for testing
   gem 'factory_bot', '~> 6.2'
   # Rails extension for factorybot

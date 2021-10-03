@@ -15,7 +15,6 @@
 #
 #  index_airplanes_on_aeroclub_id  (aeroclub_id)
 #
-# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 require 'rails_helper'
 
 RSpec.describe(Airplane, type: :model) do

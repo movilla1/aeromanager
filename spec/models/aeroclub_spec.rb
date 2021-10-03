@@ -13,7 +13,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 require 'rails_helper'
 
 RSpec.describe(Aeroclub, type: :model) do

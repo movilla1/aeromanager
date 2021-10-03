@@ -25,8 +25,8 @@
 #
 class FlightLog < ApplicationRecord
   enum flight_type: %i[TAXI LA TA VP ENT INST I PA IP ADAP READ RP SAN ACR EXA FOT FOR VO LP]
-  belongs_to :airplane, class_name: "Airplane"
-  belongs_to :user, class_name: "User"
+  belongs_to :airplane
+  belongs_to :user
   belongs_to :instructor, class_name: "User", foreign_key: :instructor_id, optional: true
 
   validates :flight_start, presence: true
@@ -43,20 +43,20 @@ class FlightLog < ApplicationRecord
 
   def flight_start_before_end_and_reasonable
     flight_duration = flight_end - flight_start
-    if flight_duration < 0
+    if flight_duration.negative?
       @errors.add( :flight_start, message: ::I18n.t("models.flight_log.errors.start_must_be_before_end") )
-    end
-    if flight_duration > ::FlightLog::MAX_FLIGHT_DURATION
+    elsif flight_duration > ::FlightLog::MAX_FLIGHT_DURATION
       @errors.add( :flight_start, message: ::I18n.t("models.flight_log.errors.too_long") )
-    end
-    if flight_duration < ::FlightLog::MIN_FLIGHT_DURATION
+    elsif flight_duration < ::FlightLog::MIN_FLIGHT_DURATION
       @errors.add(:flight_end, message: ::I18n.t("models.flight_log.errors.too_short"))
+    else
+      true
     end
   end
 
   def instructor_required_according_to_type
     return true unless flight_type == :INST
 
-    instructor_id.present? && User.exists?(id: instructor_id)
+    instructor_id.present? && ::User.exists?(id: instructor_id)
   end
 end

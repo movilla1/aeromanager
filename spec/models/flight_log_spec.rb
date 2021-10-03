@@ -22,7 +22,6 @@
 #  index_flight_logs_on_airplane_id  (airplane_id)
 #  index_flight_logs_on_user_id      (user_id)
 #
-# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 require 'rails_helper'
 
 RSpec.describe(FlightLog, type: :model) do
