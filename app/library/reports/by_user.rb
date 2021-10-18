@@ -1,5 +1,5 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
-class Reports::ByPilot
+class Reports::ByUser
   attr_reader :data_processed
 
   # Initializes the object with the data
