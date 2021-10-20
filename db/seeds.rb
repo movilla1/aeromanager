@@ -13,5 +13,7 @@ User.create(
   confirmed_at: Time.current,
   role: :admin,
   active: true,
-  confirmed: true
+  confirmed: true,
+  license: "123123",
+  license_type: "ppa"
 )
