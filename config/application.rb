@@ -34,5 +34,6 @@ module Backend
     config.time_zone = "America/Cordoba"
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.assets.initialize_on_precompile = false
   end
 end
