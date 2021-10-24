@@ -1,4 +1,4 @@
-import './manager_app.css';
+import './ManagerApp.css';
 import AppHeading from './shared/AppHeading';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';

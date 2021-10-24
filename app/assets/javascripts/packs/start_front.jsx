@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ManagerApp from './manager_app'
+import ManagerApp from './ManagerApp'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
