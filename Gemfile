@@ -16,8 +16,6 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -29,15 +27,15 @@ gem "active_material", '~>1.5', github: "vigetlabs/active_material"
 # curated addons for activeadmin
 gem 'activeadmin_addons', '~>1.8.3'
 # searchable select
-gem 'activeadmin-searchable_select', '~> 1.5'
+# gem 'activeadmin-searchable_select', '~> 1.5'
 # Bootstrap interface support
-gem 'bootstrap', '~> 5.0.1'
+# gem 'bootstrap', '~> 5.0.1'
 # Chart plotting for the reports
 gem 'chartkick', '~> 4.0', '>= 4.0.5'
 # Devise for users
 gem 'devise', '~>4.7'
 # Font awesome
-gem 'font-awesome-rails', '~>4.7'
+gem 'font-awesome-sass', '~> 5.15.1'
 # jquery rails for bootstrap
 gem 'jquery-rails', '~> 4.4'
 # Authorization support
