@@ -27,9 +27,9 @@ gem "active_material", '~>1.5', github: "vigetlabs/active_material"
 # curated addons for activeadmin
 gem 'activeadmin_addons', '~>1.8.3'
 # searchable select
-# gem 'activeadmin-searchable_select', '~> 1.5'
+gem 'activeadmin-searchable_select', '~> 1.5'
 # Bootstrap interface support
-# gem 'bootstrap', '~> 5.0.1'
+gem 'bootstrap', '~> 5.0.1'
 # Chart plotting for the reports
 gem 'chartkick', '~> 4.0', '>= 4.0.5'
 # Devise for users
