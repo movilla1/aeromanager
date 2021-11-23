@@ -1,15 +1,17 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 .App {
   text-align: center;
 }
+
 body {
-  background-image: url(http://localhost:3001/images/background-flight.jpg);
+  background-image: url('/images/background-flight.jpg');
   background-position: 0 0;
   background-repeat:  no-repeat;
   background-size: cover;
   color: rgb(230, 230, 150);
   text-shadow: 2px 2px 2px black;
 }
-@import 'bootstrap/dist/css/bootstrap.min.css';
 
 .bg-darkaero {
   background-color: rgba(20,20,20,0.4);

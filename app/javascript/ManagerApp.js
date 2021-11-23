@@ -1,3 +1,4 @@
+import React from 'react';
 import './ManagerApp.css';
 import AppHeading from './shared/AppHeading';
 import Container from 'react-bootstrap/Container';
