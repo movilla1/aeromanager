@@ -8,7 +8,7 @@ class ApplicationController < ::ActionController::Base
 
   # returns true only for admin roles
   def admin_only!
-    user_signed_in? && (current_user.admin? || current_user.superadmin?)
+    current_user.present? && (current_user.admin? || current_user.superadmin?)
   end
 
   protected
