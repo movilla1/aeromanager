@@ -35,7 +35,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :lockable, :confirmable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :validatable, :lockable, :confirmable
   enum role: %i[superadmin admin manager user]
   enum license_type: %i[ppa pma instructor]
 

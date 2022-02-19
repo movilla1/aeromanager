@@ -19,6 +19,8 @@
     f.inputs do
       f.input(:name)
       f.input(:email)
+      f.input(:license)
+      f.input(:license_type)
       f.input(:password)
       f.input(:password_confirmation)
       f.input(:role)
@@ -29,6 +31,6 @@
   end
 
   permit_params do
-    %i[name email password password_confirmation role active confirmed]
+    %i[name email password password_confirmation role active confirmed license license_type]
   end
 end
