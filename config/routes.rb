@@ -3,15 +3,6 @@
   devise_for :users
   ::ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admin do
-    resources :aeroclubs
-    resources :aeroplanes
-    resources :club_members
-    resources :consumables
-    resources :invoices
-    resources :maintenance_records
-    resources :users
-  end
 
   namespace :api do
     namespace :v1 do
