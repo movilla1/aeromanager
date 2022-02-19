@@ -1,6 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 class ApplicationController < ::ActionController::Base
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, if: :devise_controller?
   include ::Pundit
 
   before_action :configure_permitted_parameters, if: :devise_controller?
