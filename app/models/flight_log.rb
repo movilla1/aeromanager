@@ -37,6 +37,8 @@ class FlightLog < ApplicationRecord
   validate :flight_start_before_end_and_reasonable
   validate :instructor_required_according_to_type
 
+  after_validation :upcase_airports
+
   MAX_FLIGHT_DURATION = 1.month
   MIN_FLIGHT_DURATION = 5.minutes
 
@@ -62,4 +64,10 @@ class FlightLog < ApplicationRecord
 
     instructor_id.present? && ::User.exists?(id: instructor_id)
   end
+
+  def upcase_airports
+    self.origin_airport = origin_airport.to_s.upcase
+    self.destination_airport = destination_airport.to_s.upcase
+  end
+
 end
