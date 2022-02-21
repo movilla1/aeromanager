@@ -58,7 +58,7 @@ class FlightLog < ApplicationRecord
   end
 
   def instructor_required_according_to_type
-    return true unless [:INST, :ADAP].includes? flight_type
+    return true unless %i[INST ADAP].include?(flight_type)
 
     instructor_id.present? && ::User.exists?(id: instructor_id)
   end
