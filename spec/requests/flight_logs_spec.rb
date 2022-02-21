@@ -26,6 +26,7 @@ require 'rails_helper'
       airplane_id: airplane.id,
       user_id: user.id,
       flight_type: :VP,
+      normalized_duration: 1,
       instructor_id: ::FactoryBot.create(:user).id,
       origin_airport: "CED",
       destination_airport: "CED",
@@ -153,6 +154,14 @@ require 'rails_helper'
       expect {
         delete(api_v1_flight_log_url(flight_log), headers: valid_headers, as: :json)
       }.to(change(::FlightLog, :count).by(-1))
+    end
+  end
+
+  describe "GET /totalize" do
+    it "renders a successful response" do
+      ::FlightLog.create!(valid_attributes)
+      get totalize_api_v1_flight_logs_url, headers: valid_headers, as: :json
+      expect(response.body).to(include("\"total\":1.0"))
     end
   end
 end

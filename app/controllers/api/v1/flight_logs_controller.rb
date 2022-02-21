@@ -71,6 +71,19 @@ module Api
         @flight_log.destroy
       end
 
+      # GET /flight_logs/totalize
+      def totalize
+        query = ::FlightLog.where(user_id: current_user.id)
+        query = query.where("flight_start >= ?", params[:start_date]) if params[:start_date].present?
+        query = query.where("flight_end <= ?", params[:end_date]) if params[:start_date].present?
+        total_hours = 0
+        query.select(:flight_end, :flight_start).each do |fl|
+          duration = ::Services::Normalizer.normalized_hours(fl.flight_start, fl.flight_end)
+          total_hours += duration
+        end
+        render(json: { total: total_hours, start_date: params[:start_date], end_date: params[:end_date] })
+      end
+
       private
 
       # Use callbacks to share common setup or constraints between actions.

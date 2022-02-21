@@ -7,7 +7,9 @@
   namespace :api do
     namespace :v1 do
       get 'airplanes/index'
-      resources :flight_logs
+      resources :flight_logs do
+        get 'totalize', on: :collection
+      end
       get '/airplanes', to: 'airplanes#index'
       post 'authenticate', to: 'authentication#authenticate'
       post '/user/changepass', to: 'users#update_password'
