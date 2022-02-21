@@ -2,7 +2,7 @@
 # Controller to list airplanes to front end
 module Api
   module V1
-    class AirplanesController < ApplicationController
+    class AirplanesController < ApiBaseController
       # Index takes the current user and shows the planes available for usage
       def index
         planes =

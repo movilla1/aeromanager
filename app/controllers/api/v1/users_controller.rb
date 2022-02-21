@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 module Api
   module V1
-    class UsersController < ApplicationController
+    class UsersController < ApiBaseController
       before_action :find_user, except: [:instructors]
 
       # GET /users/instructors, lists all instructors available for a club

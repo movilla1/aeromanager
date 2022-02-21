@@ -1,8 +1,9 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 module Api
   module V1
-    class AuthenticationController < ApplicationController
+    class AuthenticationController < ApiBaseController
       skip_before_action :authenticate_request
+      skip_before_action :verify_authenticity_token
 
       # calls the auth routine to get the proper response.
       def authenticate

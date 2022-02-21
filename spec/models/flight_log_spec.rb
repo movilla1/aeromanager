@@ -11,6 +11,7 @@
 #  odo_end             :integer
 #  odo_start           :integer
 #  origin_airport      :string
+#  passenger_count     :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  airplane_id         :bigint

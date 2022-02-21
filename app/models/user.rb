@@ -49,7 +49,15 @@ class User < ApplicationRecord
   has_many :club_members, class_name: "ClubMember"
   has_many :aeroclubs, through: :club_members
 
+  before_validation :set_confirmation
+
   validates :license, presence: true, length: { minimum: 4 }
 
   scope :active, -> { where(active: true) }
+
+  private
+
+  def set_confirmation
+    self.confirmed_at = Time.current if confirmed
+  end
 end

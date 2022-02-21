@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 module Api
   module V1
-    class FlightLogsController < ApplicationController
+    class FlightLogsController < ApiBaseController
       before_action :set_flight_log, only: %i[show update destroy]
 
       # Initializer to hold instance var.
@@ -93,7 +93,8 @@ module Api
             :odo_end,
             :odo_start,
             :origin_airport,
-            :destination_airport
+            :destination_airport,
+            :passenger_count
           )
       end
     end

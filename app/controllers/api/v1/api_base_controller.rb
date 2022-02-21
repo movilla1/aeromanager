@@ -2,7 +2,8 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 module Api
   module V1
-    class ApplicationController < ::ActionController::API
+    class ApiBaseController < ::ActionController::API
+      before_action :verify_authenticity_token
       before_action :authenticate_request
       attr_reader :current_user
 

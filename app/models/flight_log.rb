@@ -12,6 +12,7 @@
 #  odo_end             :integer
 #  odo_start           :integer
 #  origin_airport      :string
+#  passenger_count     :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  airplane_id         :bigint
@@ -32,9 +33,9 @@ class FlightLog < ApplicationRecord
 
   validates :flight_start, presence: true
   validates :flight_end, presence: true
+  validates :airplane_id, uniqueness: { scope: :flight_start }
   validate :flight_start_before_end_and_reasonable
   validate :instructor_required_according_to_type
-  validate :airplane_id, uniqueness: { scope: :flight_start }
 
   MAX_FLIGHT_DURATION = 1.month
   MIN_FLIGHT_DURATION = 5.minutes
@@ -57,7 +58,7 @@ class FlightLog < ApplicationRecord
   end
 
   def instructor_required_according_to_type
-    return true unless flight_type == :INST
+    return true unless [:INST, :ADAP].includes? flight_type
 
     instructor_id.present? && ::User.exists?(id: instructor_id)
   end
