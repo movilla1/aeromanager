@@ -3,7 +3,6 @@
 module Api
   module V1
     class ApiBaseController < ::ActionController::API
-      before_action :verify_authenticity_token
       before_action :authenticate_request
       attr_reader :current_user
 
