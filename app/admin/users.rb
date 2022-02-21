@@ -3,6 +3,7 @@
   actions :all
   index do
     selectable_column
+    column :id
     column :name
     column :email
     column :role
@@ -12,6 +13,7 @@
     column :confirmed
     column :created_at
     column :updated_at
+    actions
   end
 
   form do |f|
