@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_135920) do
+ActiveRecord::Schema.define(version: 2022_02_21_125626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_135920) do
     t.string "destination_airport"
     t.integer "odo_start"
     t.integer "odo_end"
+    t.index ["airplane_id", "flight_start"], name: "index_flight_logs_on_airplane_id_and_flight_start", unique: true
     t.index ["airplane_id"], name: "index_flight_logs_on_airplane_id"
     t.index ["user_id"], name: "index_flight_logs_on_user_id"
   end

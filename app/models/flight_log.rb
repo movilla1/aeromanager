@@ -20,8 +20,9 @@
 #
 # Indexes
 #
-#  index_flight_logs_on_airplane_id  (airplane_id)
-#  index_flight_logs_on_user_id      (user_id)
+#  index_flight_logs_on_airplane_id                   (airplane_id)
+#  index_flight_logs_on_airplane_id_and_flight_start  (airplane_id,flight_start) UNIQUE
+#  index_flight_logs_on_user_id                       (user_id)
 #
 class FlightLog < ApplicationRecord
   enum flight_type: %i[TAXI LA TA VP ENT INST I PA IP ADAP READ RP SAN ACR EXA FOT FOR VO LP]
@@ -33,6 +34,7 @@ class FlightLog < ApplicationRecord
   validates :flight_end, presence: true
   validate :flight_start_before_end_and_reasonable
   validate :instructor_required_according_to_type
+  validate :airplane_id, uniqueness: { scope: :flight_start }
 
   MAX_FLIGHT_DURATION = 1.month
   MIN_FLIGHT_DURATION = 5.minutes

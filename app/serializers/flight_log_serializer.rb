@@ -19,8 +19,9 @@
 #
 # Indexes
 #
-#  index_flight_logs_on_airplane_id  (airplane_id)
-#  index_flight_logs_on_user_id      (user_id)
+#  index_flight_logs_on_airplane_id                   (airplane_id)
+#  index_flight_logs_on_airplane_id_and_flight_start  (airplane_id,flight_start) UNIQUE
+#  index_flight_logs_on_user_id                       (user_id)
 #
 class FlightLogSerializer
   include ::FastJsonapi::ObjectSerializer
