@@ -14,4 +14,17 @@ class FlightBookPresenter
     @landing_hour = data_row.flight_end.to_formatted_s(:time)
     @notes = data_row.notes
   end
+
+  def to_hash
+    {
+      airplane: @airplane,
+      flight_date: @flight_date,
+      origin_airport: @origin_airport,
+      destination_airport: @destination_airport,
+      pilot_license_venc: @pilot_license_venc,
+      take_off_hour: @take_off_hour,
+      landing_hour: @landing_hour,
+      notes: @notes
+    }
+  end
 end
