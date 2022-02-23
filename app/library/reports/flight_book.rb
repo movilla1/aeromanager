@@ -16,7 +16,7 @@ module Reports
       query = query.where("flight_end <= ?", "#{@end_date} 23:59:59") if @end_date.present?
       query = query.joins(user: [:club_members]).where('club_members.aeroclub_id': @club_id)
       results = []
-      query.find_each do |flight_row|
+      query.each do |flight_row|
         results << ::FlightBookPresenter.new(flight_row).to_hash
       end
       results
