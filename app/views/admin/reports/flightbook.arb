@@ -1,0 +1,27 @@
+active_admin_form_for :reports,
+  url: { action: :exec_flightbook },
+  method: :post do |f|
+  h2 'Seleccione rango de fechas'
+  f.inputs do
+    f.input(
+      :start_date,
+      as: :string,
+      input_html: { class: 'datepicker hasDatePicker' },
+      label: ::I18n.t("reports.start_date")
+    )
+    f.input(
+      :end_date,
+      as: :string,
+      input_html: { class: 'datepicker hasDatePicker' },
+      label: ::I18n.t("reports.end_date")
+    )
+    f.input(
+      :aeroclub,
+      as: :select,
+      label: ::I18n.t("reports.aeroclub"),
+      collection: ::Aeroclub.all,
+      prompt: ::I18n.t("reports.aeroclub")
+    )
+  end
+  f.actions
+end

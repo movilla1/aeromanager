@@ -52,13 +52,26 @@ Style/MultilineBlockChain:
   StyleGuide: http://relaxed.ruby.style/#stylemultilineblockchain
 
 Style/MultilineAssignmentLayout:
+  Enabled: true
   EnforcedStyle: new_line
 
 Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
   EnforcedStyle: new_line
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+  EnforcedStyle: indent
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+  EnforcedStyle: with_fixed_indentation
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
 
 Style/NegatedIf:
   Enabled: false

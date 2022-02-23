@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Planilla de Aerodromo</h1>
+  <table class="table striped" style="width: 90%">
+    <tr>
+      <th>Fecha</th>
+      <th>Aeronave</th>
+      <th>Piloto - Licencia - Venc</th>
+      <th>Cantidad Pasajeros</th>
+      <th>Hora Desp.</th>
+      <th>Hora Arr.</th>
+      <th>Procedencia</th>
+      <th>Destino</th>
+      <th>Observaciones</th>
+    </tr>
+    <% report.each do |row| %>
+      <tr>
+        <td><%= row.date %></td>
+        <td><%= row.airplane %></td>
+        <td><%= row.pilot_licence_venc %></td>
+        <td><%= row.passenger_count %></td>
+        <td><%= row.take_off_hour %></td>
+        <td><%= row.landing_hour %></td>
+        <td><%= row.origin_airport %></td>
+        <td><%= row.destination_airport %></td>
+        <td><%= row.notes %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
