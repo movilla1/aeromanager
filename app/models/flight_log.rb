@@ -9,6 +9,7 @@
 #  flight_start        :datetime         not null
 #  flight_type         :integer
 #  normalized_duration :float
+#  notes               :string
 #  odo_end             :integer
 #  odo_start           :integer
 #  origin_airport      :string

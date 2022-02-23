@@ -8,6 +8,7 @@
 #  flight_start        :datetime         not null
 #  flight_type         :integer
 #  normalized_duration :float
+#  notes               :string
 #  odo_end             :integer
 #  odo_start           :integer
 #  origin_airport      :string
@@ -28,7 +29,8 @@ class FlightLogSerializer
   include ::FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
 
-  attributes :user_id, :origin_airport, :destination_airport, :flight_type, :odo_end, :odo_start
+  attributes :user_id, :origin_airport, :destination_airport, :flight_type,
+    :odo_end, :odo_start, :notes
 
   attribute :flight_start do |obj|
     ::I18n.l(obj.flight_start, format: :long)
