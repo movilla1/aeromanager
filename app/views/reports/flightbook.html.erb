@@ -14,15 +14,15 @@
     </tr>
     <% report.each do |row| %>
       <tr>
-        <td><%= row.date %></td>
-        <td><%= row.airplane %></td>
-        <td><%= row.pilot_licence_venc %></td>
-        <td><%= row.passenger_count %></td>
-        <td><%= row.take_off_hour %></td>
-        <td><%= row.landing_hour %></td>
-        <td><%= row.origin_airport %></td>
-        <td><%= row.destination_airport %></td>
-        <td><%= row.notes %></td>
+        <td><%= row[:flight_date] %></td>
+        <td><%= row[:airplane] %></td>
+        <td><%= row[:pilot_licence_venc] %></td>
+        <td><%= row[:passenger_count] %></td>
+        <td><%= row[:take_off_hour] %></td>
+        <td><%= row[:landing_hour] %></td>
+        <td><%= row[:origin_airport] %></td>
+        <td><%= row[:destination_airport] %></td>
+        <td><%= row[:notes] %></td>
       </tr>
     <% end %>
   </table>
