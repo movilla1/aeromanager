@@ -11,7 +11,7 @@
     column :license_type
     column :active
     column :confirmed
-    column :instructor
+    column :instructor?
     column :created_at
     column :updated_at
     actions
@@ -29,12 +29,11 @@
       f.input(:role)
       f.input(:active, as: :select)
       f.input(:confirmed, as: :select)
-      f.input(:instructor)
     end
     f.actions
   end
 
   permit_params do
-    %i[name email password password_confirmation role active confirmed license license_type instructor]
+    %i[name email password password_confirmation role active confirmed license license_type]
   end
 end
