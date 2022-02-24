@@ -11,7 +11,7 @@ module Reports
 
     # executes the report data gathering.
     def call
-      query = ::FlightLog.joins(:user, :airplane).order(flight_start: :asc)
+      query = ::FlightLog.includes(:user, :airplane).order(flight_start: :asc)
       query = query.where("flight_start >= ?", "#{@start_date} 00:00:00") if @start_date.present?
       query = query.where("flight_end <= ?", "#{@end_date} 23:59:59") if @end_date.present?
       query = query.joins(user: [:club_members]).where('club_members.aeroclub_id': @club_id)

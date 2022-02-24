@@ -16,6 +16,7 @@ class FlightBookPresenter
     @passenger_count = data_row.passenger_count
   end
 
+  # returns a hash with the values for the view
   def to_hash
     {
       airplane: @airplane,
