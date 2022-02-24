@@ -109,6 +109,8 @@ es:
         odo_end: "Odometro al final"
         created_at: "Creado"
         updated_at: "Actualizado"
+        passenger_count: "Cantidad de Pasajeros"
+        notes: "Notas"
       invoice:
         user: "Usuario"
         description: "Descripcion"

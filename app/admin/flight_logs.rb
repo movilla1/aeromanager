@@ -10,5 +10,7 @@
                 :origin_airport,
                 :destination_airport,
                 :odo_start,
-                :odo_end
+                :odo_end,
+                :notes,
+                :passenger_count
 end
