@@ -11,7 +11,7 @@ class PlaneLogPresenter
     @flight_duration = ::Services::Normalizer.normalized_hours(data_row.flight_start, data_row.flight_end)
     @pilot = data_row.user&.name
     @instructor = data_row.instructor&.name
-    @license = data_row.license
+    @license = data_row.user&.license
     @take_off_hour = data_row.flight_start.to_formatted_s(:time)
     @landing_hour = data_row.flight_end.to_formatted_s(:time)
     @flight_type = data_row.flight_type
