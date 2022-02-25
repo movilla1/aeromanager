@@ -11,7 +11,7 @@ module Reports
 
     def execute
       data = ::FlightLog.includes(:user, :airplane)
-        .where("flight_start <= ? AND flight_end <= ?", @date_start, @date_end)
+        .where("flight_start >= ? AND flight_end <= ?", @date_start, @date_end)
         .where(airplane_id: @airplane_id)
         .order(user_id: :asc)
       result = []
