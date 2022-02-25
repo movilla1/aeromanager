@@ -1,6 +1,22 @@
+<style>
+  .table {
+    border: 1px solid gray;
+  }
+  .table tr, td, th {
+    border: 1px solid gray;
+  }
+  .report-title {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  .report-header {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+</style>
 <div class="container">
-  <h1>Uso en horas por avion</h1>
-  <h3> Avion: <%= plane_identifier %>
+  <h1 class="report-title">Uso en horas por avion</h1>
+  <h3 class="report-header"> Avion: <%= plane_identifier %>
   <table class="table striped" style="width: 95%">
     <tr>
       <th>Fecha</th>
