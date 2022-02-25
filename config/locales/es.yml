@@ -1,5 +1,6 @@
 es:
   only_admin_authorized: "Solo para administradores"
+  please_select: "Por favor seleccione"
   user:
     update:
       success: "Usuario actualizado"

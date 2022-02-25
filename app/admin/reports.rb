@@ -36,7 +36,7 @@
 
   page_action :exec_by_aircraft, method: :post, title: ::I18n.t("reports.report_by_aircraft") do
     parameters = params[:reports]
-    report = ::Reports::ByAircraft.new(parameters[:fecha_inicio], parameters[:fecha_fin])
+    report = ::Reports::ByAircraft.new(parameters[:fecha_inicio], parameters[:fecha_fin], parameters[:airplane])
     render "reports/by_aircraft", locals: { report: report }
   end
 

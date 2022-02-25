@@ -2,30 +2,18 @@
 module Reports
   # Creates report data by aircraft within a given date range
   class ByAircraft
-    attr_reader :data_processed
-
     # Initializes the object with the data
-    def initialize(date_start, date_end)
-      @data_processed = {}
+    def initialize(date_start, date_end, airplane_id)
       data = ::FlightLog.includes(:user, :airplane)
         .select(:airplane_id, :user_id, :flight_start, :flight_end)
         .where("flight_start <= ? AND flight_end <= ?", date_start, date_end)
+        .where(airplane_id: airplane_id)
         .order(user_id: :asc)
-      hours = {}
+      result = []
       data.each do |row|
-        normalized_hours = ::Services::Normalizer.new
-          .normalized_hours(row.flight_start, row.flight_end)
-        if @data_processed[row.airplane.identifier].present?
-          hours[row.user_id] += normalized_hours
-        else
-          hours[row.user_id] = normalized_hours
-        end
-        if @data_processed[row.airplane.identifier].present?
-          @data_processed[row.airplane.identifier][row.user.name] = hours[row.user_id]
-        else
-          @data_processed[row.airplane.identifier] = { row.user.name => hours[row.user_id] }
-        end
+        result << PlaneLogPresenter.new(row).to_hash
       end
+      result
     end
   end
 end
