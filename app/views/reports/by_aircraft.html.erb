@@ -35,7 +35,7 @@
       <th>Odometro Inicial</th>
       <th>Odometro Final</th>
     </tr>
-    <%= total = 0 %>
+    <% total = 0 %>
     <% report.each do  |row| %>
       <tr>
         <td><%= row[:flight_date] %></td>
@@ -51,7 +51,7 @@
         <td><%= row[:odo_start] %></td>
         <td><%= row[:odo_end] %></td>
       </tr>
-      <%= total += row[:flight_duration] %>
+      <% total += row[:flight_duration] %>
     <% end %>
     <tr>
       <td colspan="3">Total Hours:</td>
