@@ -12,12 +12,7 @@ module Api
 
       # GET /flight_logs
       def index
-        @flight_logs =
-          if current_user.superadmin?
-            ::FlightLog.includes(:user, :airplane).all
-          else
-            ::FlightLog.includes(:user, :airplane).for_user(current_user)
-          end
+        @flight_logs = ::FlightLog.includes(:user, :airplane).for_user(current_user)
         hash = ::FlightLogsSerializer.new(@flight_logs).serializable_hash
         render(json: hash)
       end
