@@ -35,7 +35,7 @@ class PlaneLogPresenter
       flight_type: flight_type,
       odo_start: odo_start,
       odo_end: odo_end,
-      remaining_hours: remaining_hours
+      remaining_hours: remaining_hours&.round(2)
     }
   end
 end
