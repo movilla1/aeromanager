@@ -37,8 +37,13 @@
   page_action :exec_by_aircraft, method: :post, title: ::I18n.t("reports.report_by_aircraft") do
     parameters = params[:reports]
     report = ::Reports::ByAircraft.new(parameters[:start_date], parameters[:end_date], parameters[:airplane])
-    plane = Airplane.find(parameters[:airplane])
-    render "reports/by_aircraft", locals: { report: report.execute, plane_identifier: plane.identifier }
+    plane = ::Airplane.find(parameters[:airplane])
+    report_result = report.execute
+    render "reports/by_aircraft", locals: {
+      report: report_result[:result],
+      plane_identifier: plane.identifier,
+      last_maintenance: report_result[:last_maintenance]
+    }
   end
 
   page_action :exec_by_pilot, method: :post, title: ::I18n.t("reports.report_by_pilot") do

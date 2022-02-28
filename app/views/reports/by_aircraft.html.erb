@@ -34,6 +34,7 @@
       <th>Fin del vuelo</th>
       <th>Odometro Inicial</th>
       <th>Odometro Final</th>
+      <th>Remanente de <%= last_maintenance %></th>
     </tr>
     <% total = 0 %>
     <% report.each do  |row| %>
@@ -50,6 +51,7 @@
         <td><%= row[:flight_type] %></td>
         <td><%= row[:odo_start] %></td>
         <td><%= row[:odo_end] %></td>
+        <td><%= row[:remaining_hours] %></td>
       </tr>
       <% total += row[:flight_duration] %>
     <% end %>

@@ -4,7 +4,7 @@ class PlaneLogPresenter
     :take_off_hour, :landing_hour, :flight_type, :odo_start, :odo_end
 
   # create object and calculate needed parts
-  def initialize(data_row)
+  def initialize(data_row, remaining_hours)
     @flight_date = data_row.flight_start.strftime("%d/%m/%Y")
     @origin_airport = data_row.origin_airport
     @destination_airport = data_row.destination_airport
@@ -17,6 +17,7 @@ class PlaneLogPresenter
     @flight_type = data_row.flight_type
     @odo_start = data_row.odo_start
     @odo_end = data_row.odo_end
+    @remaining_hours = remaining_hours
   end
 
   # return hash with the values on this presenter
@@ -33,7 +34,8 @@ class PlaneLogPresenter
       landing_hour: landing_hour,
       flight_type: flight_type,
       odo_start: odo_start,
-      odo_end: odo_end
+      odo_end: odo_end,
+      remaining_hours: remaining_hours
     }
   end
 end
