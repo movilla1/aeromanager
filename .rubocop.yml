@@ -175,6 +175,9 @@ Style/Copyright:
   Notice: 'Copyright \(c\) 2021 by Mario O. Villarroel - ElcanSoftware'
   AutocorrectNotice: "# Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware"
 
+Style/DisableCopsWithinSourceCodeDirective:
+  AllowedCops: [Metrics/*, Lint/*, Layout/*]
+
 AllCops:
   EnabledByDefault: true
   TargetRubyVersion: 2.6.7
