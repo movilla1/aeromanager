@@ -1,7 +1,7 @@
 # Copyright (c) 2021 by Mario O. Villarroel - ElcanSoftware
 class PlaneLogPresenter
   attr_reader :flight_date, :origin_airport, :destination_airport, :flight_duration, :pilot, :instructor, :license,
-    :take_off_hour, :landing_hour, :flight_type, :odo_start, :odo_end
+    :take_off_hour, :landing_hour, :flight_type, :odo_start, :odo_end, :remaining_hours
 
   # create object and calculate needed parts
   def initialize(data_row, remaining_hours)
