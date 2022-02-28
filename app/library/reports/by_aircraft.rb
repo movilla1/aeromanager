@@ -16,7 +16,7 @@ module Reports
         .where(airplane_id: @airplane_id)
         .order(user_id: :asc)
       last_maintenance = ::MaintenanceRecord.where(airplane_id: @airplane_id).order(created_at: :desc).first
-      remaining_hours = last_maintenance.hours_extended
+      remaining_hours = last_maintenance&.hours_extended.to_f
       ::FlightLog.where("flight_start >= ?", last_maintenance.created_at)
         .where("flight_end <= ?", @date_start).each do |f_log|
           remaining_hours -= ::Services::Normalizer.normalized_hours(f_log.flight_start, f_log.flight_end)
