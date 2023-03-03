@@ -27,6 +27,22 @@
 #
 require 'rails_helper'
 
-RSpec.describe(FlightLog, type: :model) do
-  pending "add some examples to (or delete) #{__FILE__}"
+::RSpec.describe(::FlightLog, type: :model) do
+  let(:flight_log) { build(:flight_log) }
+
+  it "won't add duplicate records" do
+    flight_log.flight_start = ::Time.current - 1.hour
+    flight_log.flight_end = ::Time.current
+    flight_log.save
+    new_log = ::FlightLog.new(flight_log.attributes)
+    expect(new_log.valid?).to(eq(false))
+  end
+
+  it "won't let a flight in the same time range as a previous one" do
+    flight_log.flight_start = ::Time.current - 4.hours
+    flight_log.flight_end = ::Time.current - 2.hours
+    flight_log.save
+    new_log = build(:flight_log, flight_start: ::Time.current - 3.hours)
+    expect(new_log.valid?).to(eq(false))
+  end
 end

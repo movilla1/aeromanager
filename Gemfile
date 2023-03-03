@@ -73,6 +73,8 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.11', '>= 2.11.3'
   # Rubocop support for rspec
   gem 'rubocop-rspec', '~> 2.4'
+  # SolarGraph for visual studio
+  gem 'solargraph', '~> 0.44.3'
   # Better matchers for testing
   gem 'shoulda-matchers', '~> 5.0'
 end

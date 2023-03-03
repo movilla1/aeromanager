@@ -35,13 +35,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable,
-         :registerable,
-         :recoverable,
-         :rememberable,
-         :validatable,
-         :lockable,
-         :confirmable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+    :validatable, :lockable, :confirmable
+
   enum role: %i[superadmin admin manager user]
   enum license_type: %i[ppa pma instructor]
 
@@ -58,6 +54,6 @@ class User < ApplicationRecord
   private
 
   def set_confirmation
-    self.confirmed_at = Time.current if confirmed
+    self.confirmed_at = ::Time.current if confirmed
   end
 end

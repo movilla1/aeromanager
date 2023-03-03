@@ -37,6 +37,7 @@ class FlightLog < ApplicationRecord
   validates :airplane_id, uniqueness: { scope: :flight_start }
   validate :flight_start_before_end_and_reasonable
   validate :instructor_required_according_to_type
+  validate :flight_not_within_other_flight
 
   after_validation :upcase_airports
 
@@ -71,4 +72,8 @@ class FlightLog < ApplicationRecord
     self.destination_airport = destination_airport.to_s.upcase
   end
 
+  def flight_not_within_other_flight
+    last_flight_for_airplane = where(airplane_id: airplane_id).order(flight_end: :desc).first
+    last_flight_for_airplane.flight_end < flight_start
+  end
 end
