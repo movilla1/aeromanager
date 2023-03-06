@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hobby Project to handle time logs for flying club.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.7, Rails 6
 
-* System dependencies
+* System dependencies: Active Admin gem for administration.
 
 * Configuration
 
-* Database creation
+Adjust the database configuration to match your needs, then follow the standard `rails db:migrate` followed by `rails db:seed`
 
-* Database initialization
+* Deployment
+Use any server that's compatible with Rails 6, or resource to basic puma, depending on the system load.
 
-* How to run the test suite
+* FRONTEND
+Front-end is kept in a separated repository, clone and use https://github.com/movilla1/aeromanager-frontend
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
